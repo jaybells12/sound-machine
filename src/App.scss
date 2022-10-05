@@ -1,0 +1,264 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html{
+  font-size: 16px;
+}
+body{
+  font-family: 'Roboto Mono', monospace;
+  background-color: #29293d;
+  color: white;
+}
+#drum-machine{
+  width: 500px;
+  height: 300px;
+  border: 4px outset #1a1a1a;
+  border-radius: 10px;
+  margin: 5rem auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(#0d0d0d , #1a1a1a , #0d0d0d)
+}
+#drum-pad{
+  width: 250px;
+  height: auto;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.drum-pad{
+  width: 75px;
+  height: 75px;
+  border-radius: 10px;
+  text-align: left;
+}
+.dp-text{
+  margin-left: 0.25rem;
+}
+
+/* --- RED --- */
+.drum-pad:nth-child(-n+3){
+  border: 3px outset #ff1a1a;
+  background-image: radial-gradient(circle at center, #ffcccc 0%, #ffb3b3 15%, #ff8080 35%, #ff1a1a 80%, #b30000)
+}
+.drum-pad:nth-child(-n+3):active, .drum-pad:nth-child(-n+3).active{
+  border: 3px inset #ff1a1a;
+  background-image: radial-gradient(circle at center, #ffe6e6 0%, #ffcccc 20%, #ff9999 40%, #ff3333 80%, #cc0000 )
+}
+
+/* --- GREEN --- */
+.drum-pad:nth-child(-n+6):nth-child(n+4){
+  border: 3px outset #1aff1a;
+  background-image: radial-gradient(circle at center, #ccffcc 0%, #b3ffb3 15%, #80ff80 35%, #1aff1a 80%, #00b300)
+}
+.drum-pad:nth-child(-n+6):nth-child(n+4):active, .drum-pad:nth-child(-n+6):nth-child(n+4).active {
+  border: 3px inset #1aff1a;
+  background-image: radial-gradient(circle at center, #e6ffe6 0%, #ccffcc 20%, #99ff99 40%, #33ff33 80%, #00cc00 )
+}
+
+/* --- BLUE --- */
+.drum-pad:nth-child(-n+9):nth-child(n+7){
+  border: 3px outset #1a1aff;
+  background-image: radial-gradient(circle at center, #ccccff 0%, #b3b3ff 15%, #8080ff 35%, #1a1aff 80%, #0000b3)
+}
+.drum-pad:nth-child(-n+9):nth-child(n+7):active, .drum-pad:nth-child(-n+9):nth-child(n+7).active{
+  border: 3px inset #1a1aff;
+  background-image: radial-gradient(circle at center, #e6e6ff 0%, #ccccff 15%, #9999ff 35%, #3333ff 80%, #0000cc)
+}
+
+/* **************** PAD CONTROLS ****************** */
+#pad-controls{
+  width: 200px;
+  height: 90%;
+  margin: 0 auto;
+}
+
+#display{
+  width: 80%;
+  height: 40px;
+  text-align: center;
+  background-color: gray;
+  border: 2px inset black;
+  margin: 2rem auto;
+  padding: 0.45rem;
+  color: black;
+  font-weight: bold;
+}
+/* ******* VOLUME SLIDER ********* */
+#volume{
+  width: 60%;
+  display: inline-block;
+  margin: 0 auto;
+  margin-left: 0.75rem;
+  margin-top: 1rem;
+  margin-bottom: -1.25px;
+  background-color: transparent;
+}
+#volume-box{
+  border: 3px inset #262626;
+  text-align: center;
+  width: 50px;
+  color: black;
+  font-weight: bold;
+  letter-spacing: 1px;
+  display: inline-block;
+  background: #6f006f;
+  padding: 0.15rem 0.25rem;
+  font-size: 1.25rem;
+  margin-left: 0.6rem;
+}
+/* ************ TOGGLE SWITCHES ***************** */
+#toggle{
+  display: inline-block;
+  margin: 1rem auto;
+  margin-left: 2.1rem
+}
+#toggle p {
+  margin-bottom: 0.25rem;
+}
+.toggle-box{
+  border: 3px inset purple;
+  background-color: #330033;
+  border-radius: 15px;
+  width: 46px;
+  height: 26px;
+  display: flex;
+  padding: 1px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.toggle-switch{
+  background-image: linear-gradient(135deg, white 10%, gray 15%, pink 70%);
+  border: 2px outset #bfbfbf;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+.translateRight{
+  align-self: flex-end;
+}
+#title {
+  margin-left: 0.67rem;
+  color: transparent;
+  font-style: italic;
+  font-weight: 100;
+  text-shadow: -1px -1px 0px black, -2px -2px 1px gray, -1px -1px 0px black;
+}
+
+/* Styling Cross-Browser Compatible Range Inputs with Sass
+ Github: https://github.com/darlanrod/input-range-sass
+ Author: Darlan Rod https://github.com/darlanrod
+ Version 1.5.3
+ MIT License */
+
+ $track-color: #424242 !default;
+ $thumb-color: #333 !default;
+ 
+ $thumb-radius: 0 !default;
+ $thumb-height: 25px !default;
+ $thumb-width: 8px !default;
+ $thumb-shadow-size: 1px !default;
+ $thumb-shadow-blur: 1px !default;
+ $thumb-shadow-color: #111 !default;
+ $thumb-border-width: 1px !default;
+ $thumb-border-color: #990099 !default;
+ 
+ $track-width: 100% !default;
+ $track-height: 5px !default;
+ $track-border-width: 1px !default;
+ $track-border-color: gray !default;
+ 
+ $track-radius: 0 !default;
+ $contrast: 5% !default;
+ 
+ @mixin shadow($shadow-size, $shadow-blur, $shadow-color) {
+   box-shadow: $shadow-size $shadow-size $shadow-blur $shadow-color,
+     0 0 $shadow-size lighten($shadow-color, 5%);
+ }
+ 
+ @mixin track() {
+   width: $track-width;
+   height: $track-height;
+   cursor: ew-resize;
+   transition: all 0.2s ease;
+ }
+ 
+ @mixin thumb() {
+   @include shadow($thumb-shadow-size, $thumb-shadow-blur, $thumb-shadow-color);
+   border: $thumb-border-width solid $thumb-border-color;
+   height: $thumb-height;
+   width: $thumb-width;
+   border-radius: $thumb-radius;
+   background: $thumb-color;
+   cursor: ew-resize;
+ }
+ 
+ [type='range'] {
+   -webkit-appearance: none;
+   margin: $thumb-height / 2 0;
+   width: $track-width;
+ 
+   &:focus {
+     outline: none;
+   }
+ 
+   &::-webkit-slider-runnable-track {
+     @include track();
+     
+     background: $track-color;
+     border: $track-border-width solid $track-border-color;
+     border-radius: $track-radius;
+   }
+ 
+   &::-webkit-slider-thumb {
+     @include thumb();
+     -webkit-appearance: none;
+     margin-top: ((-$track-border-width * 2 + $track-height) / 2) -
+       ($thumb-height / 2);
+   }
+ 
+   &::-moz-range-track {
+     @include track();
+     
+     background: $track-color;
+     border: $track-border-width solid $track-border-color;
+     border-radius: $track-radius;
+   }
+ 
+   &::-moz-range-thumb {
+     @include thumb();
+   }
+ 
+   &::-ms-track {
+     @include track();
+     background: transparent;
+     border-color: transparent;
+     border-width: $thumb-width 0;
+     color: transparent;
+   }
+ 
+   &::-ms-fill-lower {
+     
+     background: darken($track-color, $contrast);
+     border: $track-border-width solid $track-border-color;
+     border-radius: $track-radius * 2;
+   }
+ 
+   &::-ms-fill-upper {
+     
+     background: $track-color;
+     border: $track-border-width solid $track-border-color;
+     border-radius: $track-radius * 2;
+   }
+ 
+   &::-ms-thumb {
+     @include thumb();
+   }
+ }
